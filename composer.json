@@ -1,0 +1,63 @@
+{
+    "name": "konceiver/:package_name",
+    "description": ":package_description",
+    "keywords": [
+        "konceiver",
+        ":package_name"
+    ],
+    "homepage": "https://github.com/konceiver/:package_name",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Brian Faust",
+            "email": "brian@konceiver.dev",
+            "homepage": "https://konceiver.dev",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.4",
+        "illuminate/contracts": "^7.0",
+        "illuminate/support": "^7.0"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^2.16",
+        "graham-campbell/analyzer": "^2.4",
+        "orchestra/testbench": "^4.0",
+        "phpstan/phpstan": "^0.12.11",
+        "phpunit/phpunit": "^8.3",
+        "spatie/phpunit-snapshot-assertions": "^3.1",
+        "symfony/var-dumper": "4.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Konceiver\\Skeleton\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Konceiver\\Skeleton\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test:coverage": "vendor/bin/phpunit --coverage-html=.coverage --coverage-clover=clover.xml",
+        "format": "vendor/bin/php-cs-fixer fix ./",
+        "analyse": "vendor/bin/phpstan analyse --memory-limit=2G"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Konceiver\\Skeleton\\Providers\\SkeletonServiceProvider"
+            ],
+            "aliases": {
+                "Skeleton": "Konceiver\\Skeleton\\Facades\\Skeleton"
+            }
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
